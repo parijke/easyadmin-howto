@@ -2,6 +2,16 @@
 
 //.....
 
+    private AdminContextProvider $adminContextProvider;
+
+    public function __construct(AdminContextProvider $adminContextProvider)
+    {
+        $this->adminContextProvider = $adminContextProvider;
+    }
+
+//.....
+
+
    public function configureFields(string $pageName): iterable
     {
 
