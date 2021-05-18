@@ -6,7 +6,7 @@
     yield IntegerField::new('id')
         ->setLabel('Days before next')
         ->setVirtual(true)
-        ->hideOnForms(true) // Important because otherwise EA tries to call the setters
+        ->hideOnForm() // Important because otherwise EA tries to call the setters
         ->formatValue(
             function ($value, $entity) {
                 if (null === $entity) {
