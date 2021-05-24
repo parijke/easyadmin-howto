@@ -6,11 +6,12 @@
     yield IntegerField::new('id')
         ->setLabel('Days before next')
         ->setVirtual(true)
+        ->hideOnForm() // Important because otherwise EA tries to call the setters
         ->formatValue(
             function ($value, $entity) {
-                if (null !== $entity) {
-                    return $this->bookingService->daysBeforeNextBooking($entity);
-                } else {
+                if (null === $entity) {
                     return -1;
                 }
+
+                return $this->bookingService->daysBeforeNextBooking($entity);
             });
